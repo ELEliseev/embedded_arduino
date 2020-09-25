@@ -127,15 +127,23 @@ void loop()
       tft.fillScreen(ORANGE);
       //  tft.setTextColor(BLACK);
       tft.setTextSize(6);
-      tft.setCursor(35, 40);
-      tft.println("MOSLIFT");
+     // tft.setCursor(35, 40);
+     // tft.println("MOSLIFT");
+    
       tft.setCursor(90, 90);
       tft.println("TEST");
       tft.setCursor(17, 140);
       tft.println("RESISTOR");
-      tft.setCursor(180, 220);
+     // tft.setCursor(180, 220);
+     // tft.setTextSize(1);
+     // tft.println( "designed by MOSLIFT");
+     tft.setTextSize(4);
+     tft.setTextColor(BLACK);
+      tft.setCursor(42, 40);
+      tft.println("--[ // ]--");
       tft.setTextSize(1);
-      tft.println( "designed by MOSLIFT");
+      tft.setCursor(250, 220);
+       tft.println( "ver.1.2");
     }
   }
 
