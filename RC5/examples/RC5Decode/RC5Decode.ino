@@ -21,7 +21,7 @@
 #include <RC5.h>
 
 int IR_PIN = 7;
-unsigned long t0;
+unsigned int tip;
 RC5 rc5(IR_PIN);
 
 void setup() {                
@@ -33,13 +33,11 @@ void loop() {
   unsigned char toggle;
   unsigned char address;
   unsigned char command;
-  if (rc5.read(&toggle, &address, &command))
+  if (rc5.read(&tip))
   {
-    Serial.print("a:");
-    Serial.print(address);
-    Serial.print(" c:");
-    Serial.print(command);
-    Serial.print(" t:");
-    Serial.println(toggle);
+    Serial.print("tip:");
+    Serial.println(tip&(0b00111111111111));
+    
   }
+  
 }
