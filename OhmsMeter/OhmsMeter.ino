@@ -24,8 +24,8 @@ MCUFRIEND_kbv tft;
 int raw = 0;
 float Vin = 5;
 float Vout = 0;
-int R1 = 330;
-int R2 = 0;
+float R1 = 330.00;
+float R2 = 0;
 int old = 1;
 void setup()
 {
@@ -85,8 +85,8 @@ String utf8rus(String source)
   }
   return target;
 }
-int resistance(int R, float vin, float vout) {
-  return round(R * (1 / (vin / vout - 1)));
+float resistance(float R, float vin, float vout) {
+  return (R * (1 / (vin / vout - 1)));
 }
 int adc() {
   raw = 0;
@@ -112,8 +112,8 @@ void loop()
       tft.fillScreen(DARKGREEN);
       //tft.fillScreen(BLACK);
       //tft.setTextColor(RED);
-      // tft.setTextColor(WHITE);
-      tft.setTextSize(15);
+       tft.setTextColor(WHITE);
+      tft.setTextSize(8);
       tft.setCursor(26, 58);
       tft.println(R2);
       old = 1;
@@ -143,7 +143,7 @@ void loop()
       tft.println("--[ // ]--");
       tft.setTextSize(1);
       tft.setCursor(250, 220);
-       tft.println( "ver.1.2");
+       tft.println( "ver.2.0");
     }
   }
 

@@ -19,7 +19,7 @@
  */
  
 #include <RC5.h>
-
+int Ledpin = 3;
 int IR_PIN = 7;
 unsigned int tip;
 RC5 rc5(IR_PIN);
@@ -27,6 +27,7 @@ RC5 rc5(IR_PIN);
 void setup() {                
   Serial.begin(9600);
   Serial.println("Starting");
+  pinMode( Ledpin, OUTPUT);
 }
 
 void loop() {
@@ -36,8 +37,10 @@ void loop() {
   if (rc5.read(&tip))
   {
     Serial.print("tip:");
-    Serial.println(tip&(0b00111111111111));
-    
+    Serial.println(tip&4095);
+    digitalWrite(Ledpin, HIGH);
+    delay(50);
+    digitalWrite(Ledpin, LOW);
   }
   
 }
